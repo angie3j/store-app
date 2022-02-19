@@ -1,13 +1,10 @@
 const express = require('express');
-const { all } = require('../app');
+const products = express.Router();
 
 const{
     getAllProducts,
-    getProduct,
+    getProduct
 } = require('../queries/products');
-
-
-const products = express.Router();
 
 // GET ALL- the entire products object
 products.get('/', async (_, response) => {

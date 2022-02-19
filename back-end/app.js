@@ -1,7 +1,6 @@
 // DEPENDENCIES
-const cors = require("cors");
 const express = require("express");
-const productsController = require("./controllers/productsController");
+const cors = require("cors");
 
 // CONFIGURATION
 const app = express();
@@ -10,7 +9,9 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON
 
+const productsController = require("./controllers/productsController");
 app.use('/products', productsController);
+
 // ROUTES
 app.get('/', (_, response) => {
   response.status(200).send('Welcome to Happy Sparky Boutique');

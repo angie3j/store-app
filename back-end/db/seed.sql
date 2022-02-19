@@ -1,4 +1,4 @@
-\c happy_sparky_boutique;
+\c happy_sparky_boutique
 
 
 INSERT INTO products (name, reviews, image, description, price, size, color, featured) VALUES
