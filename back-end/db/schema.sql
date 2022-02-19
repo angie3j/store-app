@@ -13,7 +13,7 @@ CREATE TABLE products (
     description TEXT, 
     price TEXT,
     size TEXT, 
-    color TEXT
+    color TEXT,
     featured BOOLEAN DEFAULT false
     
 );
