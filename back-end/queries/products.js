@@ -1,4 +1,4 @@
-const db = require('.db/dbConfig');
+const db = require('..db/dbConfig');
 
 // Function queries our db
 const getAllProducts = async () => {
@@ -45,6 +45,7 @@ const deleteProduct = async (id) => {
 module.exports = {
     getAllProducts,
     getProduct,
+    createProduct,
     updateProduct,
     deleteProduct,
 };
