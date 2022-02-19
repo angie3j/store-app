@@ -1,7 +1,4 @@
 
-HEROKU Deploy:
-https://ag-store-app.herokuapp.com
-
 
 
 Front-End Deploy:
