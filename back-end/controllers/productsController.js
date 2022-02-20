@@ -5,8 +5,8 @@ const{
     getAllProducts,
     getProduct,
     createProduct, 
+    deleteProduct,
     updateProduct,
-    deleteProduct
 } = require('./queries/products');
 
 
@@ -35,8 +35,8 @@ products.get("/:id", async (request, response) => {
         //     response.redirect("/redirect")
 })
 
-// POST 
-products.post('/:id', async (request, response) => { 
+// POST - CREATE a new product
+products.post('/', async (request, response) => { 
     const product = await createProduct(request.body);
     console.log(product);
     if (!createProduct) {
@@ -58,5 +58,11 @@ products.delete('/:id', async (request, response) => {
     response.status(200).json(deletedProduct);
 })
 
+// UPDATE
+product.put('/:id', async (request, response) => {
+    console.log('PUT /:id')
+    const product = await updateProduct(request.params.id, request.body)
+    response.status(200).json(product)
+})
 
 module.exports = products;

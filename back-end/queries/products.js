@@ -1,6 +1,8 @@
 const db = require('..db/dbConfig.js');
+const products = require('../controllers/productsController');
 
-// Function queries our db
+
+// queries our db for all the products
 const getAllProducts = async () => {
     try {
         const allProducts = await db.any('SELECT * FROM products')
@@ -10,6 +12,7 @@ const getAllProducts = async () => {
     }
 }
 
+// Individual Product
 const getProduct = async (id) => {
     try {
         const oneProduct = await db.one("SELECT * FROM products WHERE id=$1", id);
@@ -19,6 +22,7 @@ const getProduct = async (id) => {
     }
 }
 
+// Create a New Product
 const createProduct = async(product) => {
     const { name, reviews, image, description, price, size, color, featured } = product;
     console.log('create', product);
@@ -33,6 +37,17 @@ const createProduct = async(product) => {
     }
 }
 
+// Delete a Product
+const deleteProduct = async (id) => {
+    try { 
+        const deletedProduct = await db.one("DELETE FROM products WHERE id=$1 RETURNING *", id);
+        return deletedProduct;
+    }catch (error) {
+        return error;
+    }
+}
+
+// Update a Product
 const updateProduct = async (id, product) => {
     try{
         const { name, reviews, image, description, price, size, color, featured } = product;
@@ -44,23 +59,11 @@ const updateProduct = async (id, product) => {
     }
 }
 
-const deleteProduct = async (id) => {
-    try { 
-        const deletedProduct = await db.one("DELETE FROM products WHERE id=$1 RETURNING *", id);
-        return deletedProduct;
-    }catch (error) {
-        return error;
-    }
-}
-
-
-
-
 
 module.exports = {
     getAllProducts,
     getProduct,
     createProduct,
-    createProduct,
     deleteProduct,
+    updateProduct,
 };
