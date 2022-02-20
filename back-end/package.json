@@ -9,6 +9,10 @@
     "db:seed": "psql -U postgres -f db/seed.sql",
     "db:init": "psql -U postgres -f db/schema.sql"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.heroku.com/ag-store-app.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

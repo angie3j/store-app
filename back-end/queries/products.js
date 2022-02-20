@@ -1,4 +1,4 @@
-const db = require('..db/dbConfig');
+const db = require('..db/dbConfig.js');
 
 // Function queries our db
 const getAllProducts = async () => {
@@ -19,15 +19,27 @@ const getProduct = async (id) => {
     }
 }
 
-const updateProduct = async(id, product) => {
+const createProduct = async(product) => {
     const { name, reviews, image, description, price, size, color, featured } = product;
-    console.log('Update', Product);
+    console.log('create', product);
     try {
-        const updatedProduct = await db.one("UPDATE products SET name=$1, reviews=$2, image=$3, description=$4, price=$5, size=$6, color=$7, featured=$8 WHERE id=$9 RETURNING *", [name, reviews, image, description, price, size, color, featured]);
-        console.log('Updating', updatedProduct);
-        return updatedProduct
+        const createdProduct = await db.one("INSERT INTO products (name, reviews, image, description, price, size, color, featured)  VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *", [name, reviews, image, description, price, size, color, featured]
+        );
+        // console.log('create', createdProduct);
+        return createdProduct
     } catch (error) {
         console.log('error9')
+        return error
+    }
+}
+
+const updateProduct = async (id, product) => {
+    try{
+        const { name, reviews, image, description, price, size, color, featured } = product;
+    const updatedProduct = await db.one('UPDATE products SET name=$1, reviews=$2, image=$3, description=$4, price=$5, size=$6, color=$7, featured=$8  WHERE id=$9 RETURNING *', [name, reviews, image, description, price, size, color, featured]
+    )
+    return updatedProduct
+    } catch (error) {
         return error
     }
 }
@@ -42,10 +54,13 @@ const deleteProduct = async (id) => {
 }
 
 
+
+
+
 module.exports = {
     getAllProducts,
     getProduct,
     createProduct,
-    updateProduct,
+    createProduct,
     deleteProduct,
 };
