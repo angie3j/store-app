@@ -7,7 +7,7 @@ const{
     createProduct, 
     deleteProduct,
     updateProduct,
-} = require('./queries/products');
+} = require("./queries/products");
 
 
 // INDEX- GET ALL- the entire products object
