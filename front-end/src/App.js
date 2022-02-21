@@ -1,29 +1,29 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Pages
+import Edit from './Pages/Edit';
 import Home from './Pages/Home';
 // import Index from './Pages/Index';
-// import New from './Pages/New';
-// import Show from './Pages/Show';
+import Form from './Pages/New';
+import Show from './Pages/Show';
 // import Reload from './Pages/Reload';
 
 // Components
-// import Product from './Components/Product';
-// import NavBar from './Components/NavBar';
-
+ import NavBar from './Components/NavBar';
+import Product from './Components/Product';
 
 
 function App() {
   return (
     <div>
-        {/* <NavBar /> */}
+        <NavBar />
         <Router>
           <Routes>
             <Route path='/' element={ <Home />}/>
-            {/* <Route path='/products' element={ <Product /> } /> */}
-            {/* <Route path='/products/new' element={ <NewForm />} /> */}
-            {/* <Route exact path='/products/:id' element={ <Show /> } /> */}
-            {/* <Route path='/produts/:id/edit' element={ <Edit /> } /> */}
+            <Route path='/products' element={ <Product /> } />
+            <Route path='/products/new' element={ <Form />} />
+            <Route exact path='/products/:id' element={ <Show /> } />
+            <Route path='/products/:id/edit' element={ <Edit /> } />
           </Routes>
         </Router>
     </div>
