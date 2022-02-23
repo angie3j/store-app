@@ -11,15 +11,22 @@ function Products() {
         .get(`${URL}/products`)
         .then((response) => {
             setProducts(response.data)
+            console.log('Happy', response.data)
         })
         .catch((error) => console.log('catch', error))
     }, [URL]);
 
+    let reviews = '';
+
     const productsDisplay = products.map((product, id) => {
+        if (product.rating === 1) {
+            reviews = `❤️ ${product.rating} Reviews`;
+        }
+
         return(
             <Product 
                 product={product}
-                id={id}
+                id={product.id}
                 key={id}
             />
         )
