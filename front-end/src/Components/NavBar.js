@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <nav className="Nav">
-      <h1>HAPPY SPARKY BOUTIQUE</h1>
-      <button>
-        <Link style={{ color: "white" }} to="/products">
+      <h1 style={{textAlign: 'center'}}>SPARKY CO.</h1>
+      <Link to="/products">
+        <button style={{ color: "blue" }} >
           {" "}
-          LEASHES
-        </Link>
-      </button>
+         Happy
+        </button>
+      </Link>
     </nav>
   );
 }
