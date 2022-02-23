@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // Pages
 import Edit from './Pages/Edit';
@@ -10,54 +10,26 @@ import Show from './Pages/Show';
 
 // Components
  import NavBar from './Components/NavBar';
-import Product from './Components/Product';
+import Products from './Components/Products';
 
 
 function App() {
   return (
     <div>
+      <Router> 
         <NavBar />
-        <Router>
-          <Routes>
-            <Route path='/' element={ <Home />}/>
-            <Route path='/products' element={ <Product /> } />
+            {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL */}
+        <Routes>
+            <Route exact path='/' element={ <Home />}/>
+            <Route path='/products' element={ <Products /> } />
             <Route path='/products/new' element={ <Form />} />
-            <Route exact path='/products/:id' element={ <Show /> } />
+            <Route path='/products/:id' element={ <Show /> } />
             <Route path='/products/:id/edit' element={ <Edit /> } />
-          </Routes>
-        </Router>
+            </Routes>
+            </Router>
     </div>
   )
 }
-
-
-// import axios from "axios";
-// import { useState, useEffect } from "react";
-// const API = process.env.REACT_APP_API_URL;
-
-// console.log(API);
-// function App() {
-//   const [days, setDays] = useState([]);
-//   useEffect(() => {
-//     axios
-//       .get(`${API}/test`)
-//       .then(
-//         (response) => {
-//           setDays(response.data);
-//         },
-//         (error) => console.log("get", error)
-//       )
-//       .catch((c) => console.warn("catch", c));
-//   }, []);
-//   return (
-//     <div>
-//       <ul>
-//         {days.map((day) => (
-//           <li key={day.name}>{day.name}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
 
 export default App;
