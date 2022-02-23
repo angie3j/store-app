@@ -7,14 +7,14 @@ const{
     createProduct, 
     deleteProduct,
     updateProduct,
-} = require("./queries/products");
+} = require("../queries/products");
 
 
 // INDEX- GET ALL- the entire products object
 products.get('/', async (_, response) => {
     console.log("GET request to /products")
     const allProducts = await getAllProducts()
-    console.log(allProducts)
+    console.log('controller', allProducts)
     if(allProducts.length === 0) {
         response.status(404).json({ error: 'Products Not Found' })
         return
@@ -36,7 +36,7 @@ products.get("/:id", async (request, response) => {
 })
 
 // POST - CREATE a new product
-products.post('/', async (request, response) => { 
+products.post('/new', async (request, response) => { 
     const product = await createProduct(request.body);
     console.log(product);
     if (!createProduct) {
@@ -47,11 +47,11 @@ products.post('/', async (request, response) => {
 
 // DELETE a single product by id
 products.delete('/:id', async (request, response) => {
+    console.log('DELETE request to/products/:id');
     const { id } = request.params;
     const deletedProduct = await deleteProduct (id);
-    if (deletedProduct.id) {
+    if (!deletedProduct) {
         console.log(deletedProduct)
-        console.log('DELETE request to/products/:id');
         response.status(404).json({error: 'Product Does Not Exist'});
         return
     }
@@ -59,10 +59,15 @@ products.delete('/:id', async (request, response) => {
 })
 
 // UPDATE
-product.put('/:id', async (request, response) => {
-    console.log('PUT /:id')
-    const product = await updateProduct(request.params.id, request.body)
+products.put('/:id', async (request, response) => {
+    console.log('PUT /products')
+    const { id } = request.params;
+    const updatedProduct = request.body;
+    const product = await updateProduct(id, updatedProduct)
+    if (product.id) {
     response.status(200).json(product)
+    } 
+    response.status(404).json({error: 'Product Cannot be Updated'});
 })
 
 module.exports = products;

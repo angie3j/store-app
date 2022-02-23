@@ -15,7 +15,7 @@ const cn = DATABASE_URL
     }
   : {
       host: PG_HOST,
-      port: NODE_ENVPG_PORT,
+      port: PG_PORT,
       database: PG_DATABASE,
       user: PG_USER,
       // password: PG_PASSWORD,

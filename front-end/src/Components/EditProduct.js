@@ -8,9 +8,14 @@ function EditForm() {
   const navigate = useNavigate();
 
   const [product, setProducts] = useState({
-    date: "",
-    source: "",
-    amount: 0,
+    name: "",
+    reviews: "",
+    image: "",
+    description: "",
+    price: 0,
+    size: "",
+    color: "",
+    // featured: 
   });
 
   useEffect(() => {

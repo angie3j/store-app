@@ -1,3 +1,29 @@
-h1 {
-    text-align: center;
+  
+.Nav {
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    background: #b3f8f2
+    ;
+    padding: 1em;
+    box-shadow: 2px 2px 4px grey;
 }
+/* h1 {
+    text-align: center;
+} */
+
+button {
+    border-radius: 50%;
+    background-color: #0000ff;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid;
+    outline: 2px solid white;
+    color: red;
+  }
+  
+  /* button hover {
+  background-color: red;
+  } */

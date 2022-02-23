@@ -20,7 +20,10 @@ function Products() {
 
     const productsDisplay = products.map((product, id) => {
         if (product.rating === 1) {
-            reviews = `❤️ ${product.rating} Reviews`;
+            reviews = `❤️❤️❤️❤️ ${product.rating} Reviews`;
+        }
+        if (product.rating === 2) {
+            reviews = `❤️❤️❤️❤️❤️ ${product.rating} Reviews`;
         }
 
         return(

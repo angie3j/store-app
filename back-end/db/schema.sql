@@ -15,7 +15,6 @@ CREATE TABLE products (
     size TEXT, 
     color TEXT,
     featured BOOLEAN DEFAULT false
-    
 );
 
 

@@ -6,7 +6,7 @@ function Form() {
   const URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
-  const [transactions, setTransactions] = useState({
+  const [products, setProducts] = useState({
     name: "",
     reviews: "",
     image: "",
@@ -14,24 +14,26 @@ function Form() {
      price: "",
      size: "",  
      color: "", 
-     featured: Boolean, 
+    //  featured: Boolean, 
   });
 
   const handleTextChange = (event) => {
-    setTransactions({ ...transactions, [event.target.id]: event.target.value });
+    setProducts({ ...products, [event.target.id]: event.target.value });
   };
 
   const handleSubmit = (event) => {
-    console.log(transactions);
+    console.log(products);
     event.preventDefault();
     axios
-      .post(`${URL}/transactions/`, transactions)
-      .then(() => navigate(`/transactions`));
+      .post(`${URL}/products/`, products)
+      .then(() => navigate(`/products`));
   };
 
   return (
     <div className="New">
-      <form className="newForm" onSubmit={handleSubmit}>
+      <form 
+      className="newForm" 
+      onSubmit={handleSubmit}>
         <fieldset style={{ color: "#66A3A3" }}>
           <legend>Create a New Item</legend>
           <br />
@@ -41,7 +43,7 @@ function Form() {
             <input
               id="name"
               name="name"
-              value={transactions.name}
+              value={products.name}
               type="text"
               onChange={handleTextChange}
               placeholder="name"
@@ -55,7 +57,7 @@ function Form() {
             <input
               id="reviews"
               name="reviews"
-              value={transactions.reviews}
+              value={products.reviews}
               type="text"
               onChange={handleTextChange}
               placeholder="reviews"
@@ -64,9 +66,12 @@ function Form() {
           </h3>
           <br />
 
-          <h3>
-          {transactions.image}
-          </h3>
+          <p>
+              <img 
+              src={products.image} 
+              alt='Dog Accessory'
+              />
+          </p>
           <br />
 
           <h3>
@@ -74,7 +79,7 @@ function Form() {
             <input
               id="description"
               name="description"
-              value={transactions.description}
+              value={products.description}
               type="text"
               onChange={handleTextChange}
               placeholder="description"
@@ -88,7 +93,7 @@ function Form() {
             <input
               id="price"
               name="price"
-              value={transactions.price}
+              value={products.price}
               type="text"
               onChange={handleTextChange}
               placeholder="price"
@@ -102,7 +107,7 @@ function Form() {
             <input
               id="size"
               name="size"
-              value={transactions.size}
+              value={products.size}
               type="text"
               onChange={handleTextChange}
               placeholder="size"
@@ -116,7 +121,7 @@ function Form() {
             <input
               id="color"
               name="color"
-              value={transactions.color}
+              value={products.color}
               type="text"
               onChange={handleTextChange}
               placeholder="color"
@@ -130,7 +135,7 @@ function Form() {
             <input
               id="featured"
               name="featured"
-              value={transactions.featured}
+              value={products.featured}
               type="text"
               onChange={handleTextChange}
               placeholder="featured"
@@ -141,11 +146,11 @@ function Form() {
 
           <div>
             <button
-              style={{ color: "white", textAlign: "center" }}
-              type="submit"
-            >
+              style={{ color: "blue", textAlign: "center" }}
+              type="submit">
               Submit
             </button>
+
           </div>
           <br />
         </fieldset>

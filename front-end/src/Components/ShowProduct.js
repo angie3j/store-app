@@ -46,14 +46,14 @@ function ShowProducts() {
   return (
     <div className="Details">
       <fieldset style={{ color: "#66A3A3" }}>
-        <legend>Product Details</legend>
+        <legend>Details</legend>
 
         <div className="showDetails">
-          <h4>Name: {product.name} </h4>
+          <h4>{product.name} </h4>
 
-          <h4>Reviews: {product.reviews}</h4>
+          <h4>Reviews {product.reviews}</h4>
 
-          <h3>Amount: ${product.amount}</h3>
+          <h3>{product.image}</h3>
 
           <div className="showNavigation">
 
@@ -62,7 +62,7 @@ function ShowProducts() {
               <Link to={`/products`}>
                 <button
                   style={{
-                    color: "white",
+                    color: "blue",
                   }}
                 >
                   Back

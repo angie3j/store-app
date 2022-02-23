@@ -16,7 +16,7 @@ import Products from './Components/Products';
 function App() {
   return (
     <div>
-      <Router> 
+        <Router> 
         <NavBar />
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL */}

@@ -6,9 +6,10 @@ function NavBar() {
     <nav className="Nav">
       <h1 style={{textAlign: 'center'}}>SPARKY CO.</h1>
       <Link to="/products">
-        <button style={{ color: "blue" }} >
+        <button 
+        style={{ color: "white" }} >
           {" "}
-         Happy
+         Leashes
         </button>
       </Link>
     </nav>

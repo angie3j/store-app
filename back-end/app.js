@@ -14,7 +14,7 @@ app.use('/products', productsController);
 
 // ROUTES
 app.get('/', (_, response) => {
-  console.log('GET request to /');
+  // console.log('GET request to /');
   response.status(200).send('Welcome to Happy Sparky Boutique');
 });
 
