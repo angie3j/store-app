@@ -37,7 +37,7 @@ function EditForm() {
     event.preventDefault();
     axios
     .put(`${URL}/products/${id}`, product)
-    .then((res) => {
+    .then(() => {
       navigate(`/products/${id}`);
     });
   };
@@ -105,6 +105,9 @@ function EditForm() {
             <br />
           </div>
         </fieldset>
+        <br />
+        <br />
+        
       </form>
     </div>
   );

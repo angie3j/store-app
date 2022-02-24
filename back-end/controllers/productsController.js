@@ -18,7 +18,7 @@ products.get('/', async (_, response) => {
     if(allProducts.length === 0) {
         response.status(404).json({ error: 'Products Not Found' })
         return
-    }
+    } 
     response.status(200).json(allProducts)
 });
 

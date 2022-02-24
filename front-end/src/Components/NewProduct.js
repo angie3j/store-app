@@ -66,13 +66,13 @@ function Form() {
           </h3>
           <br />
 
-          <p>
+          {/* <p>
               <img 
               src={products.image} 
               alt='Dog Accessory'
               />
           </p>
-          <br />
+          <br /> */}
 
           <h3>
             <label htmlFor="description">Description</label>
@@ -146,7 +146,7 @@ function Form() {
 
           <div>
             <button
-              style={{ color: "blue", textAlign: "center" }}
+              style={{ color: "white", textAlign: "center" }}
               type="submit">
               Submit
             </button>

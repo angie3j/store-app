@@ -12,6 +12,11 @@ function NavBar() {
          Leashes
         </button>
       </Link>
+
+      <Link to="/products/new">
+        <button style={{ color: "white" }}>NEW</button>
+      </Link>
+
     </nav>
   );
 }

@@ -12,8 +12,6 @@ function Product({ product, id }) {
             </Link>
           </p>
 
-          <img src={product.image} alt="Dog Leash" />
-
           <p className="featured">
             {product.featured ? <span>♥</span> : <span>♡</span>}
           </p>
