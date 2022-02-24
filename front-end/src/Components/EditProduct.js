@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditForm() {
+function EditProduct() {
   const URL = process.env.REACT_APP_API_URL;
   let { id } = useParams();
   const navigate = useNavigate();
@@ -10,12 +10,11 @@ function EditForm() {
   const [product, setProducts] = useState({
     name: "",
     reviews: "",
-    image: "",
     description: "",
     price: "",
     size: "",
     color: "",
-    // featured: 
+    featured: "",
   });
 
   useEffect(() => {
@@ -37,7 +36,7 @@ function EditForm() {
     event.preventDefault();
     axios
     .put(`${URL}/products/${id}`, product)
-    .then(() => {
+    .then((res) => {
       navigate(`/products/${id}`);
     });
   };
@@ -49,50 +48,93 @@ function EditForm() {
       <form
         style={{ color: "gray" }}
         action="/action_page.php"
-        onSubmit={handleSubmit}
-      >
+        onSubmit={ handleSubmit }>
         <br />
         <br />
         <fieldset style={{ color: "dark gray" }}>
           <legend>EDIT product</legend>
-          <br />
+          
           <h3>
-            <label htmlFor="date">Date</label>
+            <label htmlFor="name">Name:</label>
             <input
-              id="date"
-              name="date"
-              value={product.date}
-              type="text"
+              id="name"
+              name="name"
+              value={product.name}
+              type="name"
               onChange={handleTextChange}
-              placeholder="date"
+              placeholder="name"
               required
             />
           </h3>
-          <br />
-          <br />
 
           <h3>
-            <label htmlFor="from">product Type:</label>
+            <label htmlFor="reviews">Reviews</label>
             <input
-              id="source "
-              name="source"
-              value={product.source}
-              type="text"
+              id="reviews "
+              name="reviews"
+              value={product.reviews}
+              type="reviews"
               onChange={handleTextChange}
-              placeholder="source"
-            ></input>
+              placeholder="reviews"
+            />
           </h3>
-          <br />
-          <br />
 
           <h3>
-            <label htmlFor="amount">Amount:</label>
+            <label htmlFor="description">Description:</label>
             <input
-              id="amount"
-              type="number"
-              name="amount"
-              value={product.amount}
-              placeholder="amount"
+              id="description"
+              type="description"
+              name="description"
+              value={product.description}
+              placeholder="description"
+              onChange={handleTextChange}
+            />
+          </h3>
+
+          <h3>
+            <label htmlFor="price">Price:</label>
+            <input
+              id="price"
+              type="price"
+              name="price"
+              value={product.price}
+              placeholder="price"
+              onChange={handleTextChange}
+            />
+          </h3>
+
+          <h3>
+            <label htmlFor="size">Size:</label>
+            <input
+              id="size"
+              type="size"
+              name="size"
+              value={product.size}
+              placeholder="size"
+              onChange={handleTextChange}
+            />
+          </h3>
+
+          <h3>
+            <label htmlFor="color">Color:</label>
+            <input
+              id="color"
+              type="color"
+              name="color"
+              value={product.color}
+              placeholder="color"
+              onChange={handleTextChange}
+            />
+          </h3>
+
+          <h3>
+            <label htmlFor="featured">Featured:</label>
+            <input
+              id="featured"
+              type="featured"
+              name="featured"
+              value={product.featured}
+              placeholder="featured"
               onChange={handleTextChange}
             />
           </h3>
@@ -101,8 +143,7 @@ function EditForm() {
           <br />
           <div>
             <button type="submit">SUBMIT</button>
-            <br />
-            <br />
+     
           </div>
         </fieldset>
         <br />
@@ -113,4 +154,4 @@ function EditForm() {
   );
 }
 
-export default EditForm;
+export default EditProduct;

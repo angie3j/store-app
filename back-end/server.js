@@ -8,5 +8,5 @@ const PORT = process.env.PORT  ||  4545
 
 // LISTEN
 app.listen(PORT, () => {
-  console.log(` Checkout our new products on ${PORT} `);
+  console.log(` Checkout our products on ${PORT} `);
 });

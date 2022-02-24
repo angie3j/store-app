@@ -1,9 +1,9 @@
-import EditForm from "../Components/EditProduct";
+import EditProduct from "../Components/EditProduct";
 
 function Edit() {
   return (
     <div className="NewEdit">
-      <EditForm />
+      <EditProduct />
     </div>
   );
 }

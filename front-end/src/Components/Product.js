@@ -7,7 +7,7 @@ function Product({ product, id }) {
       <div className="productCard">
         <div>
           <p>
-            <Link style={{ color: "#66A3A3" }} to={`/products/${id}`}>
+            <Link style={{ color: "rgb(6, 6, 245)" }} to={`/products/${id}`}>
               {product.name}
             </Link>
           </p>

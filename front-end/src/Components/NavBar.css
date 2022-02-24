@@ -5,14 +5,18 @@
     background: hsl(175, 83%, 84%);
     padding: 1em;
     box-shadow: 2px 2px 4px grey;
+    margin-bottom: 3em;
+    display: flex;
+    justify-content: space-between
 }
-/* h1 {
-    text-align: center;
-} */
+h1 {
+    /* text-align: center; */
+    color: rgb(6, 6, 245);
+}
 
 button {
     border-radius: 50%;
-    background-color: #0000ff;
+    background-color: rgb(6, 6, 245);
     padding: 7px;
     text-align: center;
     text-decoration: none;
@@ -20,8 +24,9 @@ button {
     font-size: 16px;
     border: 1px solid;
     outline: 2px solid white;
-    color: red;
+    color: white;
   }
+
   
   /* button hover {
   background-color: red;

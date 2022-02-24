@@ -30,23 +30,23 @@ function ShowProducts() {
     <div className="Details">
       <br />
       <br />
-      <fieldset style={{ color: "#66A3A3" }}>
-        <legend>Details</legend>
+      <fieldset style={{ color: "rgb(6, 6, 245)" }}>
+        <legend>Product Details</legend>
 
         <div className="showDetails">
           <h4>{product.name} </h4>
 
-          <h4>Reviews {product.reviews}</h4>
+          <h5>Reviews {product.reviews}</h5>
 
-          <h4>{product.description}</h4>
+          <h5>{product.description}</h5>
 
-          <h4>{product.price}</h4>
+          <h5>{product.price}</h5>
 
-          <h4>{product.size}</h4>
+          <h5>{product.size}</h5>
 
-          <h4>{product.color}</h4>
+          <h5>{product.color}</h5>
 
-          <h4>{product.featured}</h4>
+          <h5>{product.featured}</h5>
 
           <div className="showNavigation">
             <div>
@@ -83,7 +83,7 @@ function ShowProducts() {
             <div>
               <div>
                 {" "}
-                <Link to={`/products/${id}`}>
+                <Link to={`/products/${id}/edit`}>
                   <button
                     style={{
                       color: "white",

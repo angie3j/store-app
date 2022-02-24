@@ -26,7 +26,20 @@ function Products() {
     });
 
     return (
-        <div>{ productsDisplay }</div>
+        <div>
+             <fieldset>
+                 <br />
+                 <br />
+          <legend
+                  style={{ color: "rgb(6, 6, 245)" }}
+          >LEASHES</legend>
+          <p>
+          { productsDisplay }</p>
+          <br />
+          <br />
+            </fieldset>
+          </div>
+
     )
 }
 

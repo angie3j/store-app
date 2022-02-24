@@ -14,7 +14,7 @@ function Form() {
      price: "",
      size: "",  
      color: "", 
-    //  featured: Boolean, 
+     featured: "",
   });
 
   const handleTextChange = (event) => {
@@ -34,7 +34,7 @@ function Form() {
       <form 
       className="newForm" 
       onSubmit={handleSubmit}>
-        <fieldset style={{ color: "#66A3A3" }}>
+        <fieldset style={{ color: "rgb(6, 6, 245)" }}>
           <legend>Create a New Item</legend>
           <br />
 
@@ -65,14 +65,6 @@ function Form() {
             />
           </h3>
           <br />
-
-          {/* <p>
-              <img 
-              src={products.image} 
-              alt='Dog Accessory'
-              />
-          </p>
-          <br /> */}
 
           <h3>
             <label htmlFor="description">Description</label>
@@ -155,6 +147,8 @@ function Form() {
           <br />
         </fieldset>
       </form>
+      <br />
+      <br />
     </div>
   );
 }

@@ -14,7 +14,7 @@ function NavBar() {
       </Link>
 
       <Link to="/products/new">
-        <button style={{ color: "white" }}>NEW</button>
+        <button style={{ color: "white" }}>New</button>
       </Link>
 
     </nav>
