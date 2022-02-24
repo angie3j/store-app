@@ -11,14 +11,6 @@ function ShowProducts() {
   // useParams returns an object that we can deconstruct from.
   let { id } = useParams();
 
-  // useEffect explained:
-  // Get request for the id of the array.
-  // It will render on each chance in order to present the most recent/accurate information
-  // what arguments does useEffect take?
-  // 1- callback function useEffect (() => {})
-  // 2- array []- => leave it blank if you're running useEffect only 1x
-  // Where can we get this [id]?
-  //
   useEffect(() => {
     axios
       .get(`${URL}/products/${id}`)
@@ -45,6 +37,8 @@ function ShowProducts() {
 
   return (
     <div className="Details">
+      <br />
+      <br />
       <fieldset style={{ color: "#66A3A3" }}>
         <legend>Details</legend>
 
@@ -53,23 +47,34 @@ function ShowProducts() {
 
           <h4>Reviews {product.reviews}</h4>
 
-          <h3>{product.image}</h3>
+          <p>{product.image}</p>
+
+          <h4>{product.description}</h4>
+
+          <h4>{product.price}</h4>
+
+          <h4>{product.size}</h4>
+
+          <h4>{product.color}</h4>
+
+          <h4>{product.featured}</h4>
 
           <div className="showNavigation">
-
             <div>
-              {" "}
-              <Link to={`/products`}>
-                <button
-                  style={{
-                    color: "blue",
-                  }}
-                >
-                  Back
-                </button>
-              </Link>
+              <div>
+                {" "}
+                <Link to={`/products`}>
+                  <button
+                    style={{
+                      color: "white",
+                    }}
+                  >
+                    Back
+                  </button>
+                </Link>
+              </div>
+              <br />
             </div>
-            <br />
 
             <div>
               <div>
@@ -84,8 +89,8 @@ function ShowProducts() {
                 </button>
               </div>
               <br />
-
             </div>
+
             <div>
               <div>
                 {" "}
@@ -102,7 +107,6 @@ function ShowProducts() {
                 </Link>
               </div>
               <br />
-              
             </div>
           </div>
         </div>

@@ -29,10 +29,10 @@ products.get("/:id", async (request, response) => {
     if (product.id) {
             console.log("GET request to /products/:id")
             response.status(200).json(product)
-        } 
-        response.status(404).json({error: 'Product Not Found'})
-        // } else {
-        //     response.redirect("/redirect")
+        } else {
+     response.status(404).json({error: 'Product Not Found'}) 
+    }
+    
 })
 
 // POST - CREATE a new product
@@ -63,7 +63,7 @@ products.put('/:id', async (request, response) => {
     console.log('PUT /products')
     const { id } = request.params;
     const updatedProduct = request.body;
-    const product = await updateProduct(id, updatedProduct)
+    const product = await updateProduct(updatedProduct, id)
     if (product.id) {
     response.status(200).json(product)
     } 

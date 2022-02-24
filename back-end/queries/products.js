@@ -4,11 +4,8 @@ const db = require('../db/dbConfig');
 const getAllProducts = async () => {
     try {
         const allProducts = await db.any('SELECT * FROM products');
-        console.log('queries',allProducts)
         return allProducts;
-
     } catch (error1) {
-        
         return error1;
     }
 }

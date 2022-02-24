@@ -12,7 +12,7 @@ function EditForm() {
     reviews: "",
     image: "",
     description: "",
-    price: 0,
+    price: "",
     size: "",
     color: "",
     // featured: 

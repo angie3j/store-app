@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS happy_sparky_boutique;
-CREATE DATABASE happy_sparky_boutique;
-
 \c happy_sparky_boutique;
 
 DROP TABLE IF EXISTS products;

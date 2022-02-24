@@ -1,9 +1,8 @@
   
 .Nav {
-    
+    /* background:  */
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
-    background: #b3f8f2
-    ;
+    background: hsl(175, 83%, 84%);
     padding: 1em;
     box-shadow: 2px 2px 4px grey;
 }
