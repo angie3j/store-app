@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <nav className="Nav">
-      {/* <h1 style={{textAlign: 'center'}}>.</h1> */}
-
-      <Link to="/">
-        <button style={{ color: "white" }}>SPARKY CO</button>
+      
+      <Link to="/products/new">
+        <button style={{ color: "white" }}>New</button>
       </Link>
       
+      <Link to="/"
+          className="store">
+        <button style={{ color: "white", fontSize: '28px' }}>SPARKY CO.</button>
+      </Link>
 
       <Link to="/products">
         <button 
@@ -17,10 +20,6 @@ function NavBar() {
           {" "}
          Leashes
         </button>
-      </Link>
-
-      <Link to="/products/new">
-        <button style={{ color: "white" }}>New</button>
       </Link>
 
     </nav>
