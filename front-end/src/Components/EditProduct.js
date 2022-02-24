@@ -43,8 +43,6 @@ function EditProduct() {
 
   return (
     <div className="Edit">
-      <br />
-      <br />
       <form
         style={{ color: "gray" }}
         action="/action_page.php"
@@ -52,7 +50,7 @@ function EditProduct() {
         <br />
         <br />
         <fieldset style={{ color: "dark gray" }}>
-          <legend>EDIT product</legend>
+          <legend style={{ color: "rgb(6, 6, 245)" }}>EDIT Product</legend>
           
           <h3>
             <label htmlFor="name">Name:</label>
@@ -143,7 +141,7 @@ function EditProduct() {
           <br />
           <div>
             <button type="submit">SUBMIT</button>
-     
+            <br />
           </div>
         </fieldset>
         <br />
