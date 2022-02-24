@@ -22,26 +22,23 @@ const getProduct = async (id) => {
 
 // Create a New Product
 const createProduct = async(product) => {
-    const { name, reviews, image, description, price, size, color, featured } = product;
-    console.log('create', product);
     try {
-        const createdProduct = await db.one("INSERT INTO products (name, reviews, image, description, price, size, color, featured)  VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *", [name, reviews, image, description, price, size, color, featured]
+        const createdProduct = await db.one("INSERT INTO products (name, reviews, image, description, price, size, color, featured)  VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *", [product.name, product.reviews, product.image, product.description, product.price, product.size, product.color, product.featured]
         );
         // console.log('create', createdProduct);
         return createdProduct
     } catch (error) {
-        console.log('error')
+        // console.log('error')
         return error
     }
 }
 
 // Update a Product
-const updateProduct = async (product) => {
-        const { name, reviews, image, description, price, size, color, featured } = product;
+const updateProduct = async (id, product) => {
     try {
-        const updatedProduct = await db.one('UPDATE products SET name=$1, reviews=$2, image=$3, description=$4, price=$5, size=$6, color=$7, featured=$8  WHERE id=$9 RETURNING *', [name, reviews, image, description, price, size, color, featured]
+        const updatedProduct = await db.one('UPDATE products SET name=$1, reviews=$2, image=$3, description=$4, price=$5, size=$6, color=$7, featured=$8  WHERE id=$9 RETURNING *', [product.name, product.reviews, product.image, product.description, product.price, product.size, product.color, product.featured]
     )
-    return updatedProduct
+    return updatedProduct;
     } catch (error) {
         return error
     }

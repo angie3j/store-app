@@ -28,17 +28,25 @@ function EditProduct() {
       });
   }, [URL, id, navigate]);
 
+  const updateProduct = (updatedProduct) => {
+    axios
+      .put(`${URL}/products/${id}`, updatedProduct)
+      .then(
+        () => {
+          navigate(`/products/${id}`);
+        },
+        (error) => console.error(error)
+      )
+      .catch((c) => console.warn("catch", c));
+  };
+
   const handleTextChange = (event) => {
     setProducts({ ...product, [event.target.id]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-    .put(`${URL}/products/${id}`, product)
-    .then((res) => {
-      navigate(`/products/${id}`);
-    });
+    updateProduct(product, id)
   };
 
   return (

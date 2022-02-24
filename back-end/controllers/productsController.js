@@ -26,23 +26,23 @@ products.get('/', async (_, response) => {
 products.get("/:id", async (request, response) => {
     const { id } = request.params;
     const product = await getProduct(id)
-    if (product.id) {
-            console.log("GET request to /products/:id")
-            response.status(200).json(product)
-        } else {
-     response.status(404).json({error: 'Product Not Found'}) 
-    }
-    
+    console.log("GET request to /products/:id")
+    if (product.length === 0) {
+        response.status(404).json({error: 'Product Not Found'}) 
+    } else {
+        response.status(200).json(product)
+    } 
 })
 
 // POST - CREATE a new product
-products.post('/new', async (request, response) => { 
+products.post('/', async (request, response) => { 
     const product = await createProduct(request.body);
     console.log(product);
     if (!createProduct) {
         response.status(404).json({error: "Product Not Posted"})
-    } 
+    } else {
     response.status(200).json(product)
+    }
 })
 
 // DELETE a single product by id
@@ -54,20 +54,19 @@ products.delete('/:id', async (request, response) => {
         console.log(deletedProduct)
         response.status(404).json({error: 'Product Does Not Exist'});
         return
+    } else {
+    response.status(200).json(deletedProduct)
     }
-    response.status(200).json(deletedProduct);
 })
 
 // UPDATE
 products.put('/:id', async (request, response) => {
-    console.log('PUT /products')
-    const { id } = request.params;
-    const updatedProduct = request.body;
-    const product = await updateProduct(updatedProduct, id)
+    const product = await updateProduct(request.params.id, request.body);
     if (product.id) {
     response.status(200).json(product)
-    } 
-    response.status(404).json({error: 'Product Cannot be Updated'});
+    } else {
+    response.status(404).json({error: 'Product Cannot be Updated'})
+    }
 })
 
 module.exports = products;

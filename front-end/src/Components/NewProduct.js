@@ -17,16 +17,26 @@ function Form() {
      featured: "",
   });
 
+  const addProduct = (newProduct) => {
+    axios
+      .post(`${URL}/products`, newProduct)
+      .then(
+        () => {
+          navigate(`/products`);
+        },
+        (error) => console.error(error)
+      )
+      .catch((c) => console.warn("catch", c));
+  };
+
+
   const handleTextChange = (event) => {
     setProducts({ ...products, [event.target.id]: event.target.value });
   };
 
   const handleSubmit = (event) => {
-    console.log(products);
     event.preventDefault();
-    axios
-      .post(`${URL}/products/`, products)
-      .then(() => navigate(`/products`));
+    addProduct(products)
   };
 
   return (
@@ -136,14 +146,14 @@ function Form() {
           </h3>
           <br />
 
-          <div>
+          {/* <div> */}
             <button
               style={{ color: "white", textAlign: "center" }}
               type="submit">
               Submit
             </button>
 
-          </div>
+          {/* </div> */}
           <br />
         </fieldset>
       </form>
