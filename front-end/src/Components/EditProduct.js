@@ -13,7 +13,6 @@ function EditProduct() {
     description: "",
     price: "",
     size: "",
-    color: "",
     featured: "",
   });
 
@@ -117,18 +116,6 @@ function EditProduct() {
               name="size"
               value={product.size}
               placeholder="size"
-              onChange={handleTextChange}
-            />
-          </h3>
-
-          <h3>
-            <label htmlFor="color">Color:</label>
-            <input
-              id="color"
-              type="color"
-              name="color"
-              value={product.color}
-              placeholder="color"
               onChange={handleTextChange}
             />
           </h3>

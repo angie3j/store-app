@@ -44,8 +44,6 @@ function ShowProducts() {
 
           <h5>{product.size}</h5>
 
-          <h5>{product.color}</h5>
-
           <h5>{product.featured}</h5>
 
           <div className="showNavigation">

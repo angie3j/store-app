@@ -1,10 +1,13 @@
 function Home() {
   return (
     <div className="Home">
-        <h1 
-        style={{ color: "white", textAlign: "center" }}
-        >WELCOME
-        </h1>
+        <fieldset>
+                 <br />
+                 <br />
+          <legend
+                  style={{ color: "rgb(6, 6, 245)", textAlign: "center" }}
+          >WELCOME</legend>
+       </fieldset>
     </div>
   );
 }

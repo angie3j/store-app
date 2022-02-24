@@ -62,10 +62,10 @@ products.delete('/:id', async (request, response) => {
 // UPDATE
 products.put('/:id', async (request, response) => {
     const product = await updateProduct(request.params.id, request.body);
-    if (product.id) {
-    response.status(200).json(product)
+    if (!product) {
+        response.status(404).json({error: 'Product Cannot be Updated'})
     } else {
-    response.status(404).json({error: 'Product Cannot be Updated'})
+        response.status(200).json(product)
     }
 })
 

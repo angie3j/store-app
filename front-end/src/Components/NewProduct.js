@@ -13,7 +13,6 @@ function Form() {
     description: "",
      price: "",
      size: "",  
-     color: "", 
      featured: "",
   });
 
@@ -113,20 +112,6 @@ function Form() {
               type="text"
               onChange={handleTextChange}
               placeholder="size"
-              required
-            />
-          </h3>
-          <br />
-
-          <h3>
-            <label htmlFor="color">Color</label>
-            <input
-              id="color"
-              name="color"
-              value={products.color}
-              type="text"
-              onChange={handleTextChange}
-              placeholder="color"
               required
             />
           </h3>
